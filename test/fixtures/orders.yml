@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  distributor_id: 1
+  product_id: 1
+  no_of_can: 1
+  time_of_delivery: 2016-06-12 22:32:42
+  price: 1
+  order_time: 2016-06-12 22:32:42
+  approval_time: 2016-06-12 22:32:42
+  dispatching: 2016-06-12 22:32:42
+
+two:
+  user_id: 1
+  distributor_id: 1
+  product_id: 1
+  no_of_can: 1
+  time_of_delivery: 2016-06-12 22:32:42
+  price: 1
+  order_time: 2016-06-12 22:32:42
+  approval_time: 2016-06-12 22:32:42
+  dispatching: 2016-06-12 22:32:42

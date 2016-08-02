@@ -1,0 +1,92 @@
+<% if signedin? %>
+  <%= link_to "Log out",logout_path, :method => "delete" %>
+<% else %>
+  <%= link_to "Log in", new_user_path %>
+<% end %>
+
+<div class="page-header row">
+  <div class="col-md-2 col-md-offset-3" id="ppic">
+    <% if @user.dpic.nil? %>
+       <img src="<%=url_for( :action => "image_display",:id => @user.id ) %>" height="140" width="140" class="img-circle img-responsive"/>
+    <% else %>
+       <%= image_tag(@user.dpic, class:"img-circle img-responsive center_block", height:"140", width:"140") %>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <h2>Edit Profile</h2>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-3">
+    <%= form_for(@user, class:"form-horizontal",role:"form") do |f| %>
+    <% if @user.errors.any? %>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <h3><%= pluralize(@user.errors.count,"Error") %></h3>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <div class="row">
+      <label  class="col-sm-2 control-label">Photo:</label>
+      <div class="col-sm-6">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#profilepic">Choose a pic</button>
+        <span id="picstatus"> </span>
+      </div></div><p></p>
+    <div class="row">
+      <div class="col-md-2 control-label">
+      <%= f.label :name %>
+    </div>
+      <div class="col-md-6">
+      <%= f.text_field :name,class: "form-control",placeholder: "Name",:required => true %>
+    </div></div><p></p>
+    <div class="row">
+      <div class="col-md-2 control-label">
+        <%= f.label :Email %>
+      </div>      <div class="col-md-6">
+      <%= f.email_field :email,class: "form-control",placeholder: "Email",:required => true %>
+    </div></div><p></p>
+    <div class="row">
+      <%= f.label :Phone,class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+      <%= f.text_field :phone,class: "form-control",placeholder: "Phone",:required => true %>
+    </div></div><p></p>
+
+    <div class="row">
+      <%= f.label :Flat_House_No,class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+      <%= f.text_field :flat_houseno,class: "form-control",placeholder: "Flat/House Number",:required => true %>
+    </div></div><p></p>
+
+    <div class="row">
+      <%= f.label :Street,class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+      <%= f.text_field :street,class: "form-control",placeholder: "Street",:required => true %>
+    </div></div><p></p>
+
+    <div class="row">
+      <%= f.label :Area,class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+      <%= f.text_field :area,class: "form-control",placeholder: "Area",:required => true %>
+    </div></div><p></p>
+
+    <div class="row">
+      <%= f.label :City,class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+      <%= f.text_field :city,class: "form-control",placeholder: "City",:required => true %>
+    </div></div><p></p>
+
+    <div class="row">
+      <%= f.label :Pincode,class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+      <%= f.text_field :pin,class: "form-control",placeholder: "Pincode",:required => true %>
+    </div></div><p></p>
+
+
+      <%= f.submit "Save",class: "btn btn-default center-block" %>
+  <% end %>
+    </div>
+  </div>

@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<p>
+<%= @distributor.name %>
+<%= @distributor.email %>
+<%= @distributor.phone %>
+<%= @distributor.flat_houseno %>
+<%= @distributor.street %>
+<%= @distributor.area %>
+<%= @distributor.city %>
+<%= @distributor.state %>
+<%= @distributor.country %>
+<%= @distributor.pin %></p>
+<p>
+  <% @distributor.distributor_products.each do |product| %>
+  <%= product.product.name %>
+  <% end %>
+  <%= current_user.name %>
+  <%= link_to "Orders", '#' %>
+  <%= link_to "Create Product", new_product_path %>
+</p>
+<%= link_to 'Edit', edit_distributor_path(@distributor) %> |
+<%= link_to 'Back', distributors_path %>
